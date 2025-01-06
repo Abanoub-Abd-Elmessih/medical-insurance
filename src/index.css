@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --color-Primary: #713f12;
+  --color-secondary: #ffe893;
+  --color-Tertiary: #b39d8a;
+}
+.text-main {
+  color: var(--color-Primary) !important;
+}
+.center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.active {
+  color: white !important;
+  background-color: var(--color-Tertiary) !important;
+}
+.border-main{
+    border: 1.5px solid var(--color-Primary);
+}
+a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.h-screen{
+  height: 80vh;
+}
