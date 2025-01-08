@@ -111,7 +111,7 @@ function Sidebar() {
                   >
                     <LuFileText />
                     التقارير
-                    <span className="me-auto fs-4">
+                    <span className="d-flex flex-grow-1 justify-content-end fs-4">
                       <MdOutlineKeyboardArrowDown />
                     </span>
                   </div>
@@ -136,7 +136,7 @@ function Sidebar() {
                   >
                     <LuFileText />
                     الاستهلاكات
-                    <span className="me-auto fs-4">
+                    <span className="d-flex flex-grow-1 justify-content-end fs-4">
                       <MdOutlineKeyboardArrowDown />
                     </span>
                   </div>
