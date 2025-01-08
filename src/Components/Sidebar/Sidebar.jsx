@@ -36,7 +36,7 @@ function Sidebar() {
             الديوان البطريركي بالاسكندرية
           </Link>
           <div
-            className="offcanvas offcanvas-end"
+            className="offcanvas offcanvas-start"
             tabIndex={-1}
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"

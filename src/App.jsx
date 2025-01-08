@@ -4,6 +4,9 @@ import Hospitals from "./Pages/Hospitals";
 import Employees from "./Pages/Employees";
 import Home from "./Pages/Home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Login from "./Pages/Login";
+import Registration from "./Pages/Registration";
+import ForgetPassword from "./Pages/ForgetPassword";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -21,6 +24,18 @@ export default function App() {
           element: <Hospitals />,
         },
       ],
+    },
+    {
+      path:'login',
+      element:<Login/>
+    },
+    {
+      path:'registration',
+      element:<Registration/>
+    },
+    {
+      path:'forgetPassword',
+      element:<ForgetPassword/>
     },
   ]);
   const query = new QueryClient();

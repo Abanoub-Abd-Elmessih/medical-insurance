@@ -1,0 +1,8 @@
+.main-div{
+    height: 40px;
+    background-color: var(--color-Primary);
+}
+.secondary-div{
+    height: 10px;
+    background-color: var(--color-secondary);
+}

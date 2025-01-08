@@ -15,20 +15,33 @@
   justify-content: center;
   align-items: center;
 }
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 .active {
   color: white !important;
   background-color: var(--color-Tertiary) !important;
 }
-.border-main{
-    border: 1.5px solid var(--color-Primary);
+.border-main {
+  border: 1.5px solid var(--color-Primary);
 }
 a {
   text-decoration: none !important;
   color: inherit !important;
 }
-.h-screen{
+.h-screen {
   height: 80vh;
+}
+div .btn-custom{
+  background-color: var(--color-Primary) ;
+  color: white;
+  border-radius: 50px;
+  transition: all 0.5s;
+  }
+div .btn-custom:hover{
+  background-color: #8e5524;
+  color: white;
+}
+.transition-col {
+  transition: all 0.5s ease-in-out;
 }
