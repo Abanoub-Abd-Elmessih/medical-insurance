@@ -1,45 +1,24 @@
 /* eslint-disable react/prop-types */
-export default function Modal({title,children}) {
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
+function ModalComponent({ title, children, show, close }) {
   return (
-    <div
-    className="modal fade "
-    id="exampleModal"
-    tabIndex={-1}
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div className="modal-dialog modal-xl modal-dialog-centered">
-      <div className="modal-content">
-        <div className="modal-header d-flex justify-content-between align-items-center">
-          <span className="modal-title fs-5" id="exampleModalLabel">
-            {title}
-          </span>
-          <span className="center-flex">
-          <button
-            type="button"
-            className="btn-close me-auto"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-            />
-            </span>
-        </div>
-        <div className="modal-body">
-            {children}
-        </div>
-        <div className="modal-footer">
-          <button
-            type="button"
-            className="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            اغلاق
-          </button>
-          <button type="button" className="btn btn-primary">
-            افتح صفحة {title}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  )
+    <Modal centered show={show} onHide={close}>
+      <Modal.Header closeButton>
+        <Modal.Title>{title}</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>{children}</Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={close}>
+          اغلق
+        </Button>
+        <Button variant="primary" onClick={close}>
+          الذهاب الي صفحة {title}
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
 }
+
+export default ModalComponent;
