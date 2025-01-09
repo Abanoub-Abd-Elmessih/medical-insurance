@@ -95,7 +95,7 @@ function Sidebar() {
                   </NavLink>
                 </li>
                 <li data-bs-toggle="offcanvas">
-                  <NavLink className="Nav-item" aria-current="page" to={"/s"}>
+                  <NavLink className="Nav-item" aria-current="page" to={"/addEmployee"}>
                     <RiUserAddFill />
                     اضافة موظف
                   </NavLink>

@@ -47,7 +47,7 @@ export default function Employees() {
 
   return (
     <>
-      <div className="px-md-5 px-2 overflow-hidden">
+      <div className="overflow-hidden">
         <div className="table-responsive">
           <table className="table">
             <thead className="table-warning">
