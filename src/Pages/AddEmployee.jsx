@@ -2,8 +2,11 @@ import { FloatingLabel, Form } from "react-bootstrap";
 import Input from "../Components/Input/Input";
 
 export default function AddEmployee() {
+    function handleSubmit(e){
+        e.preventDefault()
+    }
   return (
-    <form className="border p-5 shadow rounded-4">
+    <form onSubmit={handleSubmit} className="border p-5 shadow rounded-4">
       <div className="w-100 bg-warning bg-opacity-25 py-2 px-3 fs-5 text-main fw-bolder rounded-2">
         اضافة موظف
       </div>

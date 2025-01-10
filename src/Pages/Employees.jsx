@@ -1,20 +1,26 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
-// import { HiDotsVertical } from "react-icons/hi";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { FiEdit } from "react-icons/fi";
 import Logo from "../assets/Logo.jpg";
 import ModalComponent from "../Components/Modal/Modal";
+import EditEmployeeForm from "../Components/EditEmployeeForm/EditEmployeeForm";
 
 export default function Employees() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
-  const [show, setShow] = useState(false);
+  const [editEmployee, setEditEmployee] = useState(null);
+  const [showEmployee, setShowEmployee] = useState(false);
+  const [showEditEmployee, setShowEditEmployee] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = (employee) => {
+  const handleCloseEmployee = () => setShowEmployee(false);
+  const handleShowEmployee = (employee) => {
     setSelectedEmployee(employee);
-    setShow(true);
+    setShowEmployee(true);
+  };
+  const handleCloseEditEmployee = () => setShowEditEmployee(false);
+  const handleShowEditEmployee = (employee) => {
+    setEditEmployee(employee);
+    setShowEditEmployee(true);
   };
 
   // Test data array
@@ -49,7 +55,7 @@ export default function Employees() {
     <>
       <div className="overflow-hidden">
         <div className="table-responsive">
-          <table className="table">
+          <table className="table table-hover">
             <thead className="table-warning">
               <tr>
                 <th className="text-nowrap border-end px-3" scope="col">
@@ -74,41 +80,50 @@ export default function Employees() {
             </thead>
             <tbody>
               {employees.map((employee) => (
-                <tr
-                  key={employee.id}
-                  className="cursor-pointer"
-                  data-bs-toggle={`${selectedEmployee ? "modal" : ""}`}
-                  data-bs-target="#employeeModal"
-                  onClick={() => handleShow(employee)}
-                >
+                <tr key={employee.id} className="cursor-pointer">
                   <td>
                     <img src={Logo} alt="Logo Image" className="logo-img" />
                   </td>
-                  <td>{employee.employeeName}</td>
-                  <td>{employee.phone}</td>
-                  <td>{employee.employer}</td>
-                  <td>{employee.recievedCard ? "نعم" : "لا"}</td>
-                  <td>
+                  <td
+                    className="align-middle"
+                    onClick={() => handleShowEmployee(employee)}
+                  >
+                    {employee.employeeName}
+                  </td>
+                  <td className="align-middle">{employee.phone}</td>
+                  <td className="align-middle">{employee.employer}</td>
+                  <td className="align-middle">
+                    {employee.recievedCard ? "نعم" : "لا"}
+                  </td>
+                  <td className="align-middle">
                     <div className="d-flex gap-3">
-                      {/* <Link to={`/employeeDetails/${employee.employeeCode}`}>
-                          <HiDotsVertical className="cursor-pointer" />
-                        </Link> */}
                       <FaRegTrashAlt className="cursor-pointer" />
                       <IoShareSocialOutline className="cursor-pointer" />
-                      <FiEdit className="cursor-pointer" />
+                      <FiEdit
+                        className="cursor-pointer"
+                        onClick={() => handleShowEditEmployee(employee)}
+                      />
                     </div>
                   </td>
                 </tr>
               ))}
             </tbody>
+
             {selectedEmployee && (
               <ModalComponent
-                close={handleClose}
-                show={show}
+                close={handleCloseEmployee}
+                show={showEmployee}
                 title={selectedEmployee.employeeName}
               >
                 <h1>{selectedEmployee.employeeCode}</h1>
               </ModalComponent>
+            )}
+            {editEmployee && (
+              <EditEmployeeForm
+                close={handleCloseEditEmployee}
+                employee={editEmployee}
+                isOpen={showEditEmployee}
+              />
             )}
           </table>
         </div>

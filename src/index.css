@@ -37,6 +37,7 @@ div .btn-custom{
   color: white;
   border-radius: 50px;
   transition: all 0.5s;
+  border: transparent;
   }
 div .btn-custom:hover{
   background-color: #8e5524;
@@ -44,4 +45,13 @@ div .btn-custom:hover{
 }
 .transition-col {
   transition: all 0.5s ease-in-out;
+}
+
+.table-hover tbody tr td {
+  transition: all 0.3s;
+
+}
+.table-hover tbody tr:hover td {
+  background-color: #FFF3CD;
+  /* color: white; */
 }
